@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="photo1.jpg" as="image">
+<link rel="preload" href="photo2.jpg" as="image">
+<link rel="preload" href="photo3.jpg" as="image">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="stars-bg"></div>
+<button class="audio-toggle hidden" id="audioToggle" type="button" aria-label="Mute sound" title="Sound on">🔊</button>
+<div class="scroll-hint hidden" id="scrollHint" aria-hidden="true">
+  <span>↓</span>
+  <small>Scroll down</small>
+</div>
+<div class="sound-tip hidden" id="soundTip">
+  <strong>Sound on?</strong>
+  <span>Wear earphones for the best surprise.</span>
+</div>
+<div class="site-watermark" aria-label="Created by Saami">
+  <span>Created by</span>
+  <strong>Saami</strong>
+</div>
+
+<!-- ===== DATE LOCK ===== -->
+<div class="phase" id="coming-soon">
+  <div class="coming-card">
+    <h1>Coming Soon Celebration</h1>
+    <p>This surprise will open on the special day. Thoda sa wait, phir celebration unlock hoga.</p>
+    <div class="unlock-date">Unlocks on 19 Aug 2026, 12:00 AM IST</div>
+    <div class="countdown-lock" id="lockCountdown">Loading countdown...</div>
+  </div>
+</div>
+
+<!-- ===== PHASE 1: LANDING ===== -->
+<div class="phase hidden" id="landing">
+  <h1>Something Special</h1>
+  <p id="drawHint">Draw a big heart to unlock...😁</p>
+  <div class="heart-draw" id="heartDraw">
+    <canvas id="heartCanvas" aria-label="Draw a heart to reveal the start button"></canvas>
+    <div class="heart-guide">♡</div>
+  </div>
+  <button class="btn locked" id="startBtn">🎉 Start Celebration 🎉</button>
+</div>
+
+<!-- ===== PHASE 2: DECORATE ===== -->
+<div class="phase hidden" id="decorate-phase">
+  <div class="phase-card">
+    <h2>✨ Decorate for You ✨</h2>
+    <p>Fill the world with flowers & hearts, just like you fill my heart with endless love. 🌸🤍</p>
+    <button class="btn" id="decorateBtn">🎉 Celebrate Your Birthday 🎉</button>
+  </div>
+</div>
+
+<!-- ===== PHASE 3: MUSIC ===== -->
+<div class="phase hidden" id="music-phase">
+  <div class="phase-card">
+    <h2>🎵 Play Song 🎵</h2>
+    <p>Let’s fill the air with the sweetest birthday melody for the sweetest soul 🎶🤍️</p>
+    <button class="btn" id="musicBtn">▶ Play Music</button>
+  </div>
+</div>
+
+<!-- ===== PHASE 4: CAKE ===== -->
+<div class="phase hidden" id="cake-phase">
+  <div class="phase-card">
+    <h2>🎂 AaRzo E MeHak 🎂</h2>
+    <p id="cakeHint">Close your eyes and make a wish, then glide your finger over the candles. 🪄✨</p>
+    <div class="cake" id="cake" role="button" tabindex="0" aria-label="Swipe over the candles">
+      <div class="cake-base"></div>
+      <div class="cake-top"></div>
+      <div class="candle"><span class="flame"></span></div>
+      <div class="candle"><span class="flame"></span></div>
+      <div class="candle"><span class="flame"></span></div>
+    </div>
+    <div class="mic-meter"><span id="micMeter"></span></div>
+    <button class="btn locked" id="cakeNextBtn">Swipe Candles</button>
+  </div>
+</div>
+
+<!-- ===== PHASE 5: COUNTDOWN ===== -->
+<div class="phase hidden" id="countdown-phase">
+  <div class="countdown-number" id="countdownNumber">3</div>
+</div>
+
+<!-- ===== PHASE 6: BALLOONS ===== -->
+<div class="phase hidden" id="balloon-phase">
+  <div class="phase-card">
+    <h2>🎈 Fly Balloons 🎈</h2>
+    <p>Tap the button and pop every balloon to shower yourself with a little love! 🎈🎉 </p>
+    <button class="btn" id="balloonBtn">🎈 Fly Balloons 🎈</button>
+  </div>
+  <div class="balloon-hint" id="balloonHint">👆 Tap balloons to pop them 👆</div>
+</div>
+
+<!-- ===== PHASE 7: MESSAGE + MEMORIES ===== -->
+<div class="phase hidden" id="msg-phase">
+  <div class="phase-card">
+    <h2>🎈 Happy Birthday 🎈</h2>
+    <p class="msg-text type-cursor" id="finalMessage"></p>
+    <div class="final-memories">
+      <button class="btn memory-start hidden" id="memoryStartBtn">My Best Finds</button>
+      <div class="memory-stage hidden" id="memoryStage">
+        <div class="flashback-card" id="flashbackCard">
+          <img id="flashbackPhoto" src="" alt="Flashback memory">
+        </div>
+        <div class="flashback-counter" id="flashbackCounter">1 / 15</div>
+      </div>
+      <button class="btn memory-next hidden" id="memoryNextBtn" type="button">Click here</button>
+    </div>
+    <div class="signature">— AaRzo E MeHak ShahZadi</div>
+  </div>
+</div>
+
+<!-- ===== PHASE 8: END ===== -->
+<div class="phase hidden" id="end-phase">
+  <div class="phase-card end-card">
+    <h2>Final Message</h2>
+
+    <p>
+      کبھی کبھی زندگی میں کوئی شخص یوں ملتا ہے جیسے برسوں سے لکھی ہوئی کسی دعا کا جواب ہو۔
+      تم بھی میرے لیے کچھ ایسی ہی ہو، ایک اتفاق، جسے دل نے تقدیر سمجھ لیا۔
+
+      میں تمہیں صرف اپنی محبت کا نام نہیں دینا چاہتا، میں چاہتا ہوں کہ تم میری زندگی کے اُن
+      لمحوں کا حصہ بنو جنہیں میں آخری سانس تک یاد رکھوں۔
+
+      مجھے نہیں معلوم مستقبل ہمارے لیے کیا لکھ کر لایا ہے، مگر ایک بات جانتا ہوں۔
+      اگر زندگی ایک سفر ہے، تو میں یہ سفر تمہارے ساتھ طے کرنا چاہتا ہوں۔
+
+      کیا تم میری محبت کو صرف ایک احساس نہیں، بلکہ اپنی پوری زندگی کا انتخاب بناؤ گی؟
+    </p>
+
+    <div class="signature">~ Your Saami</div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
